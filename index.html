@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -30,7 +29,7 @@
     --hdr-t: #faf8f3;
     --nav: #1a1612;
   }
- 
+
   body { 
     font-family: 'Noto Sans TC', sans-serif; 
     background: var(--paper); 
@@ -46,7 +45,7 @@
     position: sticky; top: 0; z-index: 100;
     border-bottom: 3px solid var(--gold);
   }
- 
+
   .header-title { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.15em; }
   .header-right { display: flex; align-items: center; gap: 1.5rem; }
   .prog-bar-outer { background: rgba(255,255,255,0.15); border-radius: 99px; height: 6px; width: 160px; overflow: hidden; margin-bottom: 4px; }
@@ -64,7 +63,7 @@
   }
   .search-bar::placeholder { color: rgba(180,160,140,0.6); }
   .search-bar:focus { border-color: var(--gold); }
- 
+
   /* 切換分頁按鈕 - 採用與頂欄、新增按鈕相同的紙墨深色風格 */
   .view-btn {
     background: var(--paper-warm); color: var(--ink); border: 1.5px solid var(--paper-dark); border-radius: var(--radius);
@@ -73,11 +72,11 @@
   }
   .view-btn:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
   .view-btn:active { transform: scale(0.97); }
- 
+
   main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 2rem; }
   .view-panel { display: none; }
   .view-panel.active { display: block; }
- 
+
   /* --- 成語練習列表樣式 --- */
   .section-label {
     font-family: 'Noto Serif TC', serif; font-size: 13px; color: var(--gold);
@@ -86,14 +85,14 @@
     display: flex; align-items: center; gap: 8px;
   }
   .section-label::before { content:''; display:inline-block; width:4px; height:14px; background:var(--gold); border-radius:2px; }
- 
+
   .row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--paper-dark); flex-wrap: wrap; transition: opacity 0.3s; }
   .row:last-child { border-bottom: none; }
   .row.fading { opacity: 0; }
   .row.faded-in { animation: fadeIn 0.4s ease; }
   .row.done-row { background: var(--green-light); border-bottom-color: #b8dfc9; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
- 
+
   .chengyu-label { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 500; min-width: 110px; letter-spacing: 0.08em; flex-shrink: 0; }
   .boxes { display: flex; align-items: center; gap: 8px; flex: 1; flex-wrap: wrap; }
   .box-unit { display: flex; align-items: center; gap: 5px; }
@@ -115,7 +114,7 @@
     opacity: 0; transition: opacity 0.3s; white-space: nowrap; font-weight: 500;
   }
   .done-tag.show { opacity: 1; }
- 
+
   .del-btn {
     background: none; border: none; cursor: pointer;
     color: var(--ink-muted); font-size: 16px; padding: 2px 4px;
@@ -123,7 +122,7 @@
     flex-shrink: 0; line-height: 1;
   }
   .del-btn:hover { color: var(--red); background: var(--red-light); }
- 
+
   /* --- 白底復刻版：日曆打卡介面樣式 --- */
   .calendar-container {
     background: var(--box-bg); border-radius: 12px; padding: 2rem;
@@ -164,7 +163,7 @@
   
   /* 今天日期的外框高亮效果 */
   .cal-day.today { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(199,124,42,0.2); font-weight: 700; }
- 
+
   /* --- 彈出成果報表視窗 (Modal) --- */
   .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26,22,18,0.4); display: none; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(2px); }
   .modal-overlay.show { display: flex; }
@@ -177,7 +176,7 @@
   .modal-item:last-child { border-bottom: none; }
   .modal-close-btn { background: var(--ink); color: var(--paper); border: none; width: 100%; padding: 11px; border-radius: var(--radius); cursor: pointer; font-weight: 500; font-size: 14px; transition: background 0.15s; }
   .modal-close-btn:hover { background: var(--gold); color: #fff; }
- 
+
   /* 新增成語區塊 */
   .add-section { max-width: 900px; margin: 0 auto 4rem; padding: 1.5rem; background: var(--box-bg); border: 1.5px dashed var(--paper-dark); border-radius: 10px; }
   .add-section-title { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 500; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
@@ -190,12 +189,12 @@
   .add-btn:hover { background: var(--gold); }
   .add-hint { font-size: 12px; color: var(--ink-muted); margin-top: 8px; }
   .add-error { font-size: 12px; color: var(--red); margin-top: 6px; display: none; }
- 
+
   .empty-msg { color: var(--ink-muted); font-size: 14px; padding: 1.5rem 0 0.5rem; text-align: center; }
   .search-add-wrap { text-align: center; padding: 0.75rem 0 2rem; }
   .search-add-btn { background: var(--ink); color: var(--paper); border: none; border-radius: var(--radius); padding: 9px 24px; font-size: 14px; font-family: 'Noto Sans TC', sans-serif; cursor: pointer; font-weight: 500; transition: background 0.15s; }
   .search-add-btn:hover { background: var(--gold); }
- 
+
   @media (max-width: 600px) {
     header { flex-wrap: wrap; gap: 0.75rem; }
     .header-right { width: 100%; justify-content: space-between; }
@@ -207,7 +206,7 @@
     .calendar-grid { gap: 8px; }
     .cal-day { font-size: 14px; }
   }
- 
+
   /* 底部導覽列 */
   .bottom-nav {
     position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important;
@@ -231,7 +230,7 @@
   .nav-item.active:hover { color: var(--gold); }
   body { padding-bottom: 72px; }
   .add-section { margin-bottom: 1rem; }
- 
+
   body.dark {
     --ink:#f0e6d8;--ink-light:#c4a882;--ink-muted:#7a6655;
     --paper:#1e1208;--paper-warm:#2a1a0e;--paper-dark:#3d2a1a;
@@ -283,7 +282,7 @@
   .def-spinner{width:18px;height:18px;border:2px solid var(--paper-dark);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0;}
   @keyframes spin{to{transform:rotate(360deg)}}
   .chengyu-label:hover{color:var(--gold);}
- 
+
   .stat-overlay{position:fixed;inset:0;background:rgba(26,22,18,.5);display:none;align-items:flex-end;justify-content:center;z-index:1000;}
   .stat-overlay.show{display:flex;}
   .stat-card{background:var(--paper);width:100%;max-width:520px;border-radius:16px 16px 0 0;padding:1.5rem 1.5rem 2rem;border-top:4px solid var(--gold);animation:slideUp .25s ease-out;max-height:80vh;overflow-y:auto;}
@@ -305,7 +304,7 @@ window.onerror = function(msg, src, line, col, err) {
 </script>
 </head>
 <body>
- 
+
 <div id="brightness-wrap">
 <header>
   <span class="header-title">成語練習</span>
@@ -318,12 +317,12 @@ window.onerror = function(msg, src, line, col, err) {
     </div>
   </div>
 </header>
- 
+
 <main>
   <div id="practice-panel" class="view-panel active">
     <div id="list"></div>
   </div>
- 
+
   <div id="calendar-panel" class="view-panel">
     <div class="calendar-container">
       <div class="calendar-header">
@@ -336,7 +335,7 @@ window.onerror = function(msg, src, line, col, err) {
       <div class="calendar-grid" id="calendar-grid"></div>
     </div>
   </div>
- 
+
   <div id="add-panel" class="view-panel">
     <div class="add-section" style="margin-top:1rem;">
       <div class="add-section-title">新增成語</div>
@@ -348,7 +347,7 @@ window.onerror = function(msg, src, line, col, err) {
       <div class="add-error" id="add-error"></div>
     </div>
   </div>
- 
+
   <div id="chat-panel" class="view-panel">
     <div class="chat-wrap">
       <div class="chat-name-bar">你的暱稱：<span id="my-name-display" onclick="changeNickname()">點此設定</span></div>
@@ -359,7 +358,7 @@ window.onerror = function(msg, src, line, col, err) {
       </div>
     </div>
   </div>
- 
+
   <div id="settings-panel" class="view-panel">
     <div class="settings-inner">
       <div class="settings-heading">⚙️ 設定</div>
@@ -392,7 +391,7 @@ window.onerror = function(msg, src, line, col, err) {
   </div>
 </main>
 </div><!-- end brightness-wrap -->
- 
+
 <!-- 底部導覽列 -->
 <nav class="bottom-nav">
   <button class="nav-item active" id="nav-practice" onclick="switchTab('practice')">
@@ -416,7 +415,7 @@ window.onerror = function(msg, src, line, col, err) {
     設定
   </button>
 </nav>
- 
+
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
   <div class="modal-card" onclick="event.stopPropagation()">
     <div class="modal-title" id="modal-date-title">2026年5月30日 成果報告</div>
@@ -425,7 +424,7 @@ window.onerror = function(msg, src, line, col, err) {
     <button class="modal-close-btn" onclick="closeModal()">關閉視窗</button>
   </div>
 </div>
- 
+
 <script>
 // ===== Firebase 設定 =====
 const firebaseConfig = {
@@ -436,7 +435,7 @@ const db = firebase.database();
 const progressRef = db.ref('progress');
 const customRef = db.ref('custom');
 const historyRef = db.ref('history'); // 用於紀錄每日全對通關成語的專屬歷史打卡節點
- 
+
 // 同步狀態顯示
 db.ref('.info/connected').on('value', function(snap) {
   const dot = document.getElementById('sync-dot');
@@ -449,27 +448,27 @@ db.ref('.info/connected').on('value', function(snap) {
     label.textContent = '離線中';
   }
 });
- 
+
 const raw = `出類拔萃|每下愈況|明日黃花|沉魚落雁|五體投地|鷸蚌相爭|揠苗助長|涸轍之鮒|一丘之貉|五十步笑百步|名落孫山|美輪美奐|糟糠之妻|心廣體胖|蓬蓽生輝|觥籌交錯|前倨後恭|五穀豐登|池魚之殃|大公無私|退避三舍|暴虎馮河|一望無垠|畫蛇添足|如火如荼|羽扇綸巾|獨具隻眼|越俎代庖|郢書燕說|旖旎風光|鶴立雞群|厲兵秣馬|橘化為枳|薏苡明珠|參差不齊|一曝十寒|飛黃騰達|不脛而走|守株待兔|始作俑者|入木三分|老牛舐犢|扞格不入|未雨綢繆|夜以紀日|司空見慣|尸位素餐|打破砂鍋問到底|睚眥必報|風聲鶴唳|風馬牛不相及|齊大非耦|毛遂自薦|小時了了|瓜田李下|青出於藍|孤注一擲|虛與委蛇|煮豆燃萁|既來之則安之|黃粱一夢|差強人意|縱橫捭闔|班門弄斧|風流倜儻|廬山真面|欲蓋彌彰|拋磚引玉|熙熙攘攘|篳路藍縷|既往不咎|庸人自擾|勞燕分飛|杳如黃鶴|出爾反爾|毛骨悚然|一毛不拔|莫名其妙|偃旗息鼓|逢人說項|刮目相看|切磋琢磨|亦步亦趨|名不副實|陳腔濫調|閉門造車|一言九鼎|虎視眈眈|醉翁之意|一鳴驚人|滄海一粟|興高采烈|出奇制勝|披星戴月|河東獅吼|黃台之瓜|坦腹東床|杞人憂天|汗牛充棟|懲前毖後|懷璧其罪|衣錦還鄉|根深柢固|東窗事發|南轅北轍|戴罪立功|難兄難弟|靈犀一點通|抱佛腳|挑撥離間|叱吒風雲|信口雌黃|姍姍來遲|盡忠報國|舉案齊眉|期期艾艾|奄奄一息|傾國傾城|慘綠少年|吳牛喘月|曾參殺人|委靡不振|巾幗英雄|匠心獨運|應聲蟲|上下其手|呆若木雞|杯弓蛇影|大千世界|程門立雪|再三推敲|鋌而走險|牛山濯濯|吉光片羽|毋忘在莒|歲寒松柏|春風得意|敬業樂群|天衣無縫|曲高和寡|虛有其表|戎馬倥傯|敵愾同仇|簞食壺漿|夸父逐日|梨園弟子|諱莫如深|大而化之|囫圇吞棗|乘風破浪|鬼鬼祟祟|鬩牆之禍|戰戰兢兢|不愧屋漏|洛陽紙貴|臨渴掘井|亡羊補牢|兩敗俱傷|緣木求魚|沐雨櫛風|巧偷豪奪|鵲巢鳩占|陳陳相因|雙管齊下|木人石心|內助之賢|三折其功|滿城風雨|鳳毛麟角|勾心鬥角|網開三面|唐突西施|狡兔三窟|門庭朝市|後來居上|雪泥鴻爪|華屋山丘|泰山壓頂|急就章|養虎貽患|老馬識途|樂此不疲|奉為圭臬|汗流浹背|舉一反三|水落石出|磨杵成針|上行下效|同舟共濟|開卷有益|創業維艱|排難解紛|割席絕交|更上一層樓|刻舟求劍|專心致志|言過其實|不屈不撓|物以類聚|一日千里|鴻鵠之志|百聞不如一見|泰山鴻毛|舐糠及米|不貪為寶|夢為蝴蝶|山雞舞鏡|喧賓奪主|拒人於千里之外|著作等身|出人頭地|多難興邦|安樂窩|國士無雙|車水馬龍|一語破的|知其一不知其二|除舊布新|一年之計在於春|束之高閣|暗箭傷人|閉門羹|雞鳴狗盜|一日三秋|迎刃而解|水到渠成|醍醐灌頂|雪中送炭|文不加點|羅掘俱窮|朝氣蓬勃|口誅筆伐|風行草偃|司馬昭之心|疊床架屋|一元復始|一蟹不如一蟹|老蚌生珠|衣鉢真傳|一字千金|作繭自縛|非池中物|解鈴繫鈴|前度劉郎|捨本逐末|望塵莫及|小巫見大巫|樂不思蜀|日升月恆|春露秋霜|弦歌不輟|畫荻教子|怒髮衝冠|圍魏救趙|空中樓閣|箭在弦上|騎虎難下|青眼相看|馬耳東風|功不唐捐|一時瑜亮|比翼連理|常山之蛇|刎頸之交|寸陰尺壁|夢筆生花|抱薪救火|求仁得仁|左右逢源|金石為開|殷鑑不遠|如食雞肋|望梅止渴|心腹之患|多多益善|一見鍾情|為人作嫁|望洋興歎|決勝千里|董狐之筆|群盲摸象|白頭如新|暮鼓晨鐘|四面楚歌|平步青雲|乘興而來|一飯千金|葉公好龍|黔驢技窮|邯鄲學步|良藥苦口|傳神阿堵|戴笠乘車|強弩之末|先發制人|是可忍孰不可忍|及鋒而試|一鼓作氣|口若懸河|項莊舞劍|耳濡目染|有志竟成|張冠李戴|癡人說夢|三人成虎|問鼎中原|賠了夫人又折兵|腳踏實地|妙語解頤|盘根错节|羽翼已成|結草銜環|四海為家|以鄰為壑|清風兩袖|五花八門|如魚得水|成人之美|空穴來風|見怪不怪|濯纓濯足|樂天知命|乘龍快婿|繩鋸木斷|水滴石穿|杜撰|骨骾在喉|好好先生|物腐蟲生|畏首畏尾|折衝樽俎|掛羊頭賣狗肉|臧否人物|筋疲力盡|膽大包天|彰明較著|枕流漱石|酒囊飯袋|失之東隅|收之桑榆`;
- 
+
 const allBase = [...new Set(raw.split('|').map(s=>s.trim()).filter(Boolean))];
 let custom = [];
 let completed = {};
 let historyData = {}; // 存放每日打卡成果
- 
+
 let currentYear = 2026;
 let currentMonth = 4; // 預設停在 5 月 (0是一月)
- 
+
 // 禁止複製貼上
 const preventDefaultActions = e => e.preventDefault();
 ['copy', 'paste', 'cut', 'contextmenu'].forEach(evt => document.addEventListener(evt, preventDefaultActions));
- 
+
 function allList() { return allBase.concat(custom); }
- 
+
 function getFirebaseKey(chengyu) {
   return encodeURIComponent(chengyu).replace(/\./g, '%2E');
 }
- 
+
 function updateProgress() {
   const list = allList();
   const done = list.filter(w => completed[w]).length;
@@ -477,11 +476,11 @@ function updateProgress() {
   document.getElementById('prog-bar').style.width = rate + '%';
   document.getElementById('prog-text').textContent = `完成 ${done} / ${list.length}`;
 }
- 
+
 function saveProgress(chengyu, val) {
   const key = getFirebaseKey(chengyu);
   progressRef.child(key).set(val);
- 
+
   // 當三遍都答對時，自動在 history 節點上記錄當天打卡日期與時間
   if (val === true) {
     const today = new Date();
@@ -497,11 +496,11 @@ function saveProgress(chengyu, val) {
     });
   }
 }
- 
+
 function saveCustom() {
   customRef.set(custom);
 }
- 
+
 // 監聽歷史打卡進度
 historyRef.on('value', function(snap) {
   historyData = snap.val() || {};
@@ -509,7 +508,7 @@ historyRef.on('value', function(snap) {
     renderCalendar();
   }
 });
- 
+
 // 監聽主挑戰進度
 progressRef.on('value', function(snap) {
   const data = snap.val() || {};
@@ -544,7 +543,7 @@ progressRef.on('value', function(snap) {
     }
   });
 });
- 
+
 // 監聽自訂成語
 customRef.on('value', function(snap) {
   const data = snap.val();
@@ -553,12 +552,12 @@ customRef.on('value', function(snap) {
   else { custom = Object.values(data); }
   renderList(document.getElementById('search').value);
 });
- 
+
 function makeRow(chengyu, deletable) {
   const row = document.createElement('div');
   row.className = 'row' + (completed[chengyu] ? ' done-row' : '');
   row.dataset.chengyu = chengyu;
- 
+
   const lbl = document.createElement('span');
   lbl.className = 'chengyu-label';
   lbl.textContent = chengyu;
@@ -571,12 +570,12 @@ function makeRow(chengyu, deletable) {
     openDefinition(cy);
   });
   row.appendChild(lbl);
- 
+
   const boxes = document.createElement('div');
   boxes.className = 'boxes';
- 
+
   const allInputs = [], checks = [];
- 
+
   for (let i = 0; i < 3; i++) {
     const unit = document.createElement('div');
     unit.className = 'box-unit';
@@ -584,9 +583,9 @@ function makeRow(chengyu, deletable) {
     inp.type = 'text'; 
     inp.className = 'box'; 
     inp.placeholder = chengyu;
- 
+
     ['copy', 'paste', 'cut', 'contextmenu'].forEach(evt => inp.addEventListener(evt, preventDefaultActions));
- 
+
     allInputs.push(inp);
     const ck = document.createElement('span');
     ck.className = 'mini-check';
@@ -595,17 +594,17 @@ function makeRow(chengyu, deletable) {
     unit.appendChild(ck);
     boxes.appendChild(unit);
   }
- 
+
   const doneTag = document.createElement('span');
   doneTag.className = 'done-tag' + (completed[chengyu] ? ' show' : '');
   doneTag.textContent = '已完成';
   boxes.appendChild(doneTag);
- 
+
   if (completed[chengyu]) {
     allInputs.forEach(function(inp) { inp.readOnly = true; inp.className = 'box correct'; inp.value = chengyu; });
     checks.forEach(function(ck) { ck.textContent = '✓'; ck.classList.add('show'); });
   }
- 
+
   allInputs.forEach(function(inp, idx) {
     inp.addEventListener('input', function() {
       const val = inp.value.trim();
@@ -628,7 +627,7 @@ function makeRow(chengyu, deletable) {
         checks[idx].textContent = ''; 
         checks[idx].classList.remove('show'); 
       }
- 
+
       const allCorrect = allInputs.every(b => b.value.trim() === chengyu);
       if (allCorrect) {
         if (!completed[chengyu]) {
@@ -660,9 +659,9 @@ function makeRow(chengyu, deletable) {
       }
     });
   });
- 
+
   row.appendChild(boxes);
- 
+
   if (deletable) {
     const del = document.createElement('button');
     del.className = 'del-btn'; del.textContent = '✕';
@@ -676,20 +675,20 @@ function makeRow(chengyu, deletable) {
     };
     row.appendChild(del);
   }
- 
+
   return row;
 }
- 
+
 function renderList(filter) {
   filter = (filter || '').trim();
   const container = document.getElementById('list');
   container.innerHTML = ''; 
- 
+
   const fragment = document.createDocumentFragment();
   let shownAny = false;
   const filtered = allBase.filter(w => !filter || w.includes(filter));
   if (filtered.length) { shownAny = true; filtered.forEach(function(w) { fragment.appendChild(makeRow(w, false)); }); }
- 
+
   const filteredCustom = custom.filter(w => !filter || w.includes(filter));
   if (filteredCustom.length > 0) {
     shownAny = true;
@@ -698,16 +697,16 @@ function renderList(filter) {
     const customLbl = document.createElement('div');
     customLbl.className = 'section-label'; customLbl.textContent = '自訂成語';
     customSec.appendChild(customLbl);
- 
+
     filteredCustom.forEach(function(w) { customSec.appendChild(makeRow(w, true)); });
     fragment.appendChild(customSec);
   }
- 
+
   if (!shownAny && filter) {
     const msg = document.createElement('p');
     msg.className = 'empty-msg'; msg.textContent = `找不到「${filter}」`;
     fragment.appendChild(msg);
- 
+
     const addWrap = document.createElement('div');
     addWrap.className = 'search-add-wrap';
     const addBtn = document.createElement('button');
@@ -721,11 +720,11 @@ function renderList(filter) {
     addWrap.appendChild(addBtn);
     fragment.appendChild(addWrap);
   }
- 
+
   container.appendChild(fragment);
   updateProgress();
 }
- 
+
 function addChengyu() {
   const input = document.getElementById('new-chengyu');
   const errEl = document.getElementById('add-error');
@@ -739,19 +738,19 @@ function addChengyu() {
   input.value = '';
   document.getElementById('search').value = '';
   renderList('');
- 
+
   setTimeout(() => {
     const sec = document.getElementById('custom-section');
     if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 100);
 }
- 
+
 document.getElementById('new-chengyu').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') addChengyu();
 });
- 
+
 function filterList(val) { renderList(val); }
- 
+
 // ===== 分頁切換控制 =====
 function switchTab(tab) {
   ['practice', 'calendar', 'add', 'chat', 'settings'].forEach(function(t) {
@@ -760,53 +759,53 @@ function switchTab(tab) {
   });
   if (tab === 'calendar') renderCalendar();
 }
- 
+
 function changeMonth(direction) {
   currentMonth += direction;
   if (currentMonth > 11) { currentMonth = 0; currentYear++; }
   else if (currentMonth < 0) { currentMonth = 11; currentYear--; }
   renderCalendar();
 }
- 
+
 // 動態繪製與主介面完全一致的白底行事曆
 function renderCalendar() {
   const grid = document.getElementById('calendar-grid');
   const monthTitle = document.getElementById('cal-month-title');
   grid.innerHTML = '';
- 
+
   const monthNames = ["1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
   monthTitle.textContent = `${currentYear} 年 ${monthNames[currentMonth]}`;
- 
+
   const weekdays = ['一', '二', '三', '四', '五', '六', '日'];
   weekdays.forEach(day => {
     const el = document.createElement('div');
     el.className = 'weekday-label'; el.textContent = day;
     grid.appendChild(el);
   });
- 
+
   const firstDay = new Date(currentYear, currentMonth, 1);
   let startDayIndex = firstDay.getDay(); 
   if (startDayIndex === 0) startDayIndex = 7; // 週日排在最後
- 
+
   const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
- 
+
   // 空白填充
   for (let i = 1; i < startDayIndex; i++) {
     const emptyCell = document.createElement('div');
     emptyCell.className = 'cal-day empty';
     grid.appendChild(emptyCell);
   }
- 
+
   const today = new Date();
- 
+
   for (let day = 1; day <= totalDays; day++) {
     const dayCell = document.createElement('div');
     dayCell.className = 'cal-day'; dayCell.textContent = day;
- 
+
     const mStr = String(currentMonth + 1).padStart(2, '0');
     const dStr = String(day).padStart(2, '0');
     const dateKey = `${currentYear}-${mStr}-${dStr}`;
- 
+
     // 如果這一天有通關紀錄，套用成語答對時的松石綠底色
     if (historyData[dateKey]) {
       dayCell.classList.add('has-data');
@@ -815,20 +814,20 @@ function renderCalendar() {
       badge.className = 'count-badge'; badge.textContent = `完成 ${count}`;
       dayCell.appendChild(badge);
     }
- 
+
     // 今天日期加上古典金微調外框
     if (today.getFullYear() === currentYear && today.getMonth() === currentMonth && today.getDate() === day) {
       dayCell.classList.add('today');
     }
- 
+
     dayCell.onclick = function() {
       showDayStats(dateKey);
     };
- 
+
     grid.appendChild(dayCell);
   }
 }
- 
+
 function showModal(dateStr, dayData) {
   const overlay = document.getElementById('modal-overlay');
   const title = document.getElementById('modal-date-title');
@@ -837,7 +836,7 @@ function showModal(dateStr, dayData) {
   const formattedDate = dateStr.replace(/-/, '年').replace(/-/, '月') + '日';
   title.textContent = `📅 ${formattedDate} 成果報告`;
   body.innerHTML = '';
- 
+
   if (!dayData) {
     body.innerHTML = `<p style="color:var(--ink-light); text-align:center; padding:1.8rem 0; font-size:14px;">這天沒有挑戰成語喔 🤫</p>`;
   } else {
@@ -850,14 +849,14 @@ function showModal(dateStr, dayData) {
   }
   overlay.classList.add('show');
 }
- 
+
 function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); }
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
 (function() {
   var today = new Date().toISOString().slice(0,10);
   var last = localStorage.getItem('cy-last-date');
@@ -866,7 +865,7 @@ function closeModal() { document.getElementById('modal-overlay').classList.remov
   }
   localStorage.setItem('cy-last-date', today);
 })();
- 
+
 // ===== 重置進度 =====
 function resetProgress() {
   if (!confirm('確定要重置今日所有進度嗎？')) return;
@@ -875,11 +874,11 @@ function resetProgress() {
     location.reload();
   });
 }
- 
+
 // ===== 暱稱 & 密碼 =====
 var CHAT_PWD = '052920';
 var myNickname = localStorage.getItem('cy-nickname') || '';
- 
+
 function initNickname() {
   var authed = localStorage.getItem('cy-chat-auth');
   if (!myNickname || !authed) {
@@ -888,7 +887,7 @@ function initNickname() {
     document.getElementById('my-name-display').textContent = myNickname;
   }
 }
- 
+
 function saveNickname() {
   var name = document.getElementById('nickname-input').value.trim();
   var pwd  = document.getElementById('chat-pwd-input').value.trim();
@@ -905,23 +904,23 @@ function saveNickname() {
   document.getElementById('nickname-screen').style.display = 'none';
   document.getElementById('my-name-display').textContent = name;
 }
- 
+
 function changeNickname() {
   document.getElementById('nickname-input').value = myNickname;
   document.getElementById('chat-pwd-input').value = '';
   document.getElementById('nickname-screen').style.display = 'flex';
 }
- 
+
 // ===== 聊天室 =====
 var chatRef = firebase.database().ref('chat');
 var chatInited = false;
- 
+
 function initChat() {
   if (chatInited) return;
   chatInited = true;
   chatRef.limitToLast(80).on('child_added', function(snap) { renderMsg(snap.val()); });
 }
- 
+
 function renderMsg(msg) {
   var box = document.getElementById('chat-messages');
   if (!box) return;
@@ -934,9 +933,9 @@ function renderMsg(msg) {
   box.appendChild(div);
   box.scrollTop = box.scrollHeight;
 }
- 
+
 function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
- 
+
 function sendMessage() {
   if (!myNickname) { document.getElementById('nickname-screen').style.display='flex'; return; }
   var input = document.getElementById('chat-input');
@@ -945,22 +944,22 @@ function sendMessage() {
   chatRef.push({ name: myNickname, text: text, ts: Date.now() });
   input.value = '';
 }
- 
+
 document.addEventListener('keydown', function(e) {
   if (e.key==='Enter' && document.activeElement && document.activeElement.id==='chat-input') sendMessage();
   if (e.key==='Enter' && document.activeElement && document.activeElement.classList.contains('nickname-input')) saveNickname();
 });
- 
+
 var _sw = switchTab;
 switchTab = function(tab) { _sw(tab); if (tab==='chat') initChat(); };
- 
+
 // ===== 統計彈窗 =====
 function showDayStats(dateKey) {
   var data = historyData[dateKey] || {};
   var keys = Object.keys(data);
   var totalWords = keys.length;
   var totalChars = keys.reduce(function(sum, k) { return sum + (data[k].name ? data[k].name.length : 0); }, 0);
- 
+
   // 計算花費時間（最早到最晚的 timestamp 差）
   var timestamps = keys.map(function(k){ return data[k].ts || 0; }).filter(Boolean);
   var durationStr = '無紀錄';
@@ -978,11 +977,11 @@ function showDayStats(dateKey) {
   } else if (timestamps.length === 1) {
     durationStr = '不到 1 分鐘';
   }
- 
+
   var d = new Date(dateKey);
   var title = (d.getMonth()+1) + '月' + d.getDate() + '日 統計';
   document.getElementById('stat-date-title').textContent = title;
- 
+
   var body = document.getElementById('stat-body');
   if (totalWords === 0) {
     body.innerHTML = '<p style="color:var(--ink-muted);font-size:14px;padding:1rem 0;">這天沒有打卡紀錄</p>';
@@ -997,11 +996,11 @@ function showDayStats(dateKey) {
   }
   document.getElementById('stat-overlay').classList.add('show');
 }
- 
+
 function closeStatOverlay() {
   document.getElementById('stat-overlay').classList.remove('show');
 }
- 
+
 // ===== 主題與亮度 =====
 function setTheme(mode) {
   if (mode==='dark') {
@@ -1027,7 +1026,7 @@ function setBrightness(val) {
   if (b) { document.getElementById('brightness-slider').value=b; setBrightness(b); }
   initNickname();
 })();
- 
+
 var DICT = {
   '出類拔萃': {z:'ㄔㄨ ㄌㄟˋ ㄅㄚˊ ㄘㄨㄟˋ', m:'超出同類之上，形容才能特別出眾。', e:'他的成績出類拔萃，深受老師讚賞。'},
   '每下愈況': {z:'ㄇㄟˇ ㄒㄧㄚˋ ㄩˋ ㄎㄨㄤˋ', m:'情況越來越差，每況愈下。', e:'公司業績每下愈況，令人擔憂。'},
@@ -1370,30 +1369,34 @@ var DICT = {
   '失之東隅': {z:'ㄕ ㄓ ㄉㄨㄥ ㄩˊ', m:'在東方失去了，後接「收之桑榆」，指在一處失敗，在另一處得到補償。', e:'失之東隅，收之桑榆，這次失敗也許會帶來新的機遇。'},
   '收之桑榆': {z:'ㄕㄡ ㄓ ㄙㄤ ㄩˊ', m:'在西方（桑榆）得到了補償，與「失之東隅」連用，比喻雖有損失但也有收穫。', e:'失之東隅，收之桑榆，失去了一個機會，卻得到了更好的。'}
 };
- 
+
 function openDefinition(chengyu) {
-  document.getElementById('def-title').textContent = chengyu;
+  var overlay = document.getElementById('def-overlay');
+  var titleEl = document.getElementById('def-title');
+  var bodyEl = document.getElementById('def-body');
+  if (!overlay || !titleEl || !bodyEl) { alert(chengyu + '\n（注音功能載入中，請稍後再試）'); return; }
+  titleEl.textContent = chengyu;
   var entry = DICT[chengyu];
   if (entry) {
-    document.getElementById('def-body').innerHTML =
+    bodyEl.innerHTML =
       '<div class="def-section"><div class="def-section-title">注　音</div><div class="def-section-content" style="font-size:16px;letter-spacing:.05em;">'+entry.z+'</div></div>' +
       '<div class="def-section"><div class="def-section-title">意　思</div><div class="def-section-content">'+entry.m+'</div></div>' +
       '<div class="def-section"><div class="def-section-title">例　句</div><div class="def-section-content">'+entry.e+'</div></div>';
   } else {
-    document.getElementById('def-body').innerHTML = '<p style="color:var(--ink-muted);font-size:14px;padding:1rem 0;">查無此成語的資料</p>';
+    bodyEl.innerHTML = '<p style="color:var(--ink-muted);font-size:14px;padding:1rem 0;">查無此成語的資料</p>';
   }
-  document.getElementById('def-overlay').classList.add('show');
+  overlay.classList.add('show');
 }
- 
+
 function closeDefinition(e) {
   if (e && e.target !== document.getElementById('def-overlay')) return;
   document.getElementById('def-overlay').classList.remove('show');
 }
- 
+
 // 初始讀取清單
 renderList();
 </script>
- 
+
 <div class="def-overlay" id="def-overlay" onclick="closeDefinition(event)">
   <div class="def-card" id="def-card">
     <div class="def-header">
@@ -1403,7 +1406,7 @@ renderList();
     <div id="def-body"><div class="def-loading"><div class="def-spinner"></div>查詢中…</div></div>
   </div>
 </div>
- 
+
 <div class="nickname-screen" id="nickname-screen" style="display:none;">
   <div class="nickname-title">成語練習</div>
   <div class="nickname-sub">請輸入暱稱和聊天密碼才能使用聊天室</div>
@@ -1412,7 +1415,7 @@ renderList();
   <div id="pwd-error" style="font-size:13px;color:#e06060;display:none;">密碼錯誤，請再試一次</div>
   <button class="nickname-btn" onclick="saveNickname()">確認進入</button>
 </div>
- 
+
 <div class="stat-overlay" id="stat-overlay" onclick="closeStatOverlay()">
   <div class="stat-card" onclick="event.stopPropagation()">
     <div class="stat-header">
@@ -1423,3 +1426,4 @@ renderList();
   </div>
 </div>
 </body>
+</html>
