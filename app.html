@@ -1371,22 +1371,66 @@ function setBrightness(val) {
 })();
 
 
+var defCache = {};
+
 function openDefinition(chengyu) {
   var overlay = document.getElementById('def-overlay');
   var titleEl = document.getElementById('def-title');
   var bodyEl = document.getElementById('def-body');
   if (!overlay || !titleEl || !bodyEl) { alert(chengyu + '\n（注音功能載入中，請稍後再試）'); return; }
   titleEl.textContent = chengyu;
+  overlay.classList.add('show');
+
   var entry = DICT[chengyu];
   if (entry) {
     bodyEl.innerHTML =
       '<div class="def-section"><div class="def-section-title">注　音</div><div class="def-section-content" style="font-size:16px;letter-spacing:.05em;">'+entry.z+'</div></div>' +
       '<div class="def-section"><div class="def-section-title">意　思</div><div class="def-section-content">'+entry.m+'</div></div>' +
       '<div class="def-section"><div class="def-section-title">例　句</div><div class="def-section-content">'+entry.e+'</div></div>';
-  } else {
-    bodyEl.innerHTML = '<p style="color:var(--ink-muted);font-size:14px;padding:1rem 0;">查無此成語的資料</p>';
+    return;
   }
-  overlay.classList.add('show');
+
+  // 字典沒有的，用 AI 查
+  if (defCache[chengyu]) { renderDefText(defCache[chengyu]); return; }
+  bodyEl.innerHTML = '<div class="def-loading"><div class="def-spinner"></div>查詢中…</div>';
+  fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 600,
+      messages: [{ role: 'user', content: '請用繁體中文說明成語「'+chengyu+'」，只輸出以下三部分：\n【注音】\n【意思】\n【例句】' }]
+    })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    var text = (data.content && data.content[0] && data.content[0].text) || '查詢失敗';
+    defCache[chengyu] = text;
+    renderDefText(text);
+  })
+  .catch(function(){ bodyEl.innerHTML = '<p style="color:var(--red)">查詢失敗，請確認網路連線</p>'; });
+}
+
+function renderDefText(text) {
+  var bodyEl = document.getElementById('def-body');
+  var sections = [
+    { key:'【注音】', label:'注　音' },
+    { key:'【意思】', label:'意　思' },
+    { key:'【例句】', label:'例　句' }
+  ];
+  var html = '';
+  sections.forEach(function(s) {
+    var idx = text.indexOf(s.key);
+    if (idx === -1) return;
+    var end = text.length;
+    sections.forEach(function(s2) {
+      if (s2.key === s.key) return;
+      var i2 = text.indexOf(s2.key);
+      if (i2 > idx && i2 < end) end = i2;
+    });
+    html += '<div class="def-section"><div class="def-section-title">'+s.label+'</div><div class="def-section-content">'+text.slice(idx+s.key.length,end).trim()+'</div></div>';
+  });
+  bodyEl.innerHTML = html || '<p>'+text+'</p>';
 }
 
 function closeDefinition(e) {
