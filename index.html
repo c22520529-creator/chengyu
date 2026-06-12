@@ -799,8 +799,8 @@ let custom = [];
 let completed = {};
 let historyData = {}; // 存放每日打卡成果
 
-let currentYear = 2026;
-let currentMonth = 4; // 預設停在 5 月 (0是一月)
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth(); // 自動抓當前月份
 
 // 禁止複製貼上
 const preventDefaultActions = e => e.preventDefault();
@@ -1395,7 +1395,12 @@ function openDefinition(chengyu) {
   bodyEl.innerHTML = '<div class="def-loading"><div class="def-spinner"></div>查詢中…</div>';
   fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': 'sk-ant-api03-placeholder',
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-allow-browser': 'true'
+    },
     body: JSON.stringify({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 600,
